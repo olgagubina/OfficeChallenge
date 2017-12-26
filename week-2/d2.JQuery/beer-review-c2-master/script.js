@@ -1,20 +1,21 @@
-
 var beers = [];
 
-
-function addBeer(){
-var name = $('.beer-input').val();
-var category = $('.category-input').val();
-var beerObj = {};
-beerObj.name = name;
-beerObj.category = category;
-beers.push(beerObj);
+function addBeer (name, category) {
+    name = $('.beer-input').val();
+    category = $('.category-input').val();
+    beers.push(
+        {
+        "name": name,
+        "category": category
+        }
+    );
+    console.log(beers);
 }
 
 function renderBeers() {
     $('.beers-list').html('');
     for (var i=0; i<beers.length; i++) {
-        $('.beers-list').append('<li>' + beers[i].name + ' ' + beers[i].category + '</li>');
+        $('.beers-list').append('<li>' + beers[i].name + ' ' + beers[i].category +'</li>');
     }
 }
 
@@ -22,10 +23,3 @@ $('.beer-form').on('click', '.post-beer', function(){
     addBeer();
     renderBeers();
 });
-
-
-
-
-
-
-
